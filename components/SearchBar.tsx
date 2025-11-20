@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X } from 'lucide-react';
 
+declare var chrome: any;
+
 const SearchBar: React.FC = () => {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
@@ -25,11 +27,23 @@ const SearchBar: React.FC = () => {
     if (query.trim().length > 0) {
       const fetchSuggestions = async () => {
         try {
-          // Use proxy in development to avoid CORS, direct URL in production (extension)
+          // Determine the correct URL based on environment
           const isDev = import.meta.env.DEV;
-          const baseUrl = isDev 
-            ? '/suggest' 
-            : 'https://suggestqueries.google.com/complete/search';
+          // Check if running as an extension (chrome.runtime.id is present in extensions)
+          // We use 'any' cast because chrome types might not be fully available in all contexts
+          const isExtension = typeof chrome !== 'undefined' && (chrome as any).runtime && (chrome as any).runtime.id;
+          
+          let baseUrl;
+          if (isDev) {
+            // Local development using Vite proxy
+            baseUrl = '/suggest';
+          } else if (isExtension) {
+            // Production Extension: Direct call (requires permissions in manifest)
+            baseUrl = 'https://suggestqueries.google.com/complete/search';
+          } else {
+            // Production Web (Vercel): Use Serverless Function proxy
+            baseUrl = '/api/suggest';
+          }
             
           console.log('Fetching suggestions from:', baseUrl);
           const response = await fetch(`${baseUrl}?client=firefox&q=${encodeURIComponent(query)}`);
