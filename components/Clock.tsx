@@ -48,26 +48,26 @@ const Clock: React.FC<ClockProps> = ({ settings }) => {
       className="flex flex-col items-center justify-center w-full h-full relative transition-colors duration-700"
       style={{ color: settings.textColor || settings.accentColor }}
     >
-      <div className="absolute top-[15%] z-50">
+      <div className="absolute top-[10%] md:top-[15%] z-50 w-full flex justify-center px-4">
         <SearchBar />
       </div>
 
-      <div className="flex items-baseline font-mono leading-none select-none">
-        <span className="text-[12vw] md:text-[10rem] font-bold tracking-tighter drop-shadow-2xl">
+      <div className="flex items-baseline font-mono leading-none select-none mt-12 md:mt-0">
+        <span className="text-[18vw] md:text-[10rem] font-bold tracking-tighter drop-shadow-2xl">
           {mainTime}
         </span>
-        <div className="flex flex-col justify-between ml-4 h-[8vw] md:h-[7rem] py-2">
+        <div className="flex flex-col justify-between ml-2 md:ml-4 h-[12vw] md:h-[7rem] py-1 md:py-2">
            {settings.useAmPm && (
-            <span className="text-2xl md:text-4xl font-bold opacity-80">
+            <span className="text-[4vw] md:text-4xl font-bold opacity-80">
               {suffix}
             </span>
           )}
-          <span className="text-2xl md:text-4xl font-bold opacity-60">
+          <span className="text-[4vw] md:text-4xl font-bold opacity-60">
             {seconds}
           </span>
         </div>
       </div>
-      <div className="mt-4 text-gray-400 font-sans text-lg md:text-xl font-light tracking-widest uppercase opacity-50">
+      <div className="mt-4 text-gray-400 font-sans text-sm md:text-xl font-light tracking-widest uppercase opacity-50 text-center px-4">
         {time.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}
       </div>
     </div>

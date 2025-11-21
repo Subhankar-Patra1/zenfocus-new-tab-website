@@ -27,7 +27,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, settings
 
   return (
     <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-all duration-300">
-      <div className="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-sm mx-4 transform transition-all max-h-[90vh] overflow-y-auto">
+      <div className="bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-2xl shadow-2xl w-full max-w-sm mx-4 transform transition-all max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-sans font-semibold text-white">
             {showCustomPicker ? 'Custom Theme' : 'Customize'}

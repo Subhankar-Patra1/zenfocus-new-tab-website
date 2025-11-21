@@ -194,10 +194,10 @@ const Timer: React.FC<TimerProps> = ({ settings }) => {
   const strokeDashoffset = 283 - (283 * visualProgress);
 
   return (
-    <div className="flex flex-col items-center justify-center animate-in fade-in duration-700">
-      <div className="relative mb-8">
+    <div className="flex flex-col items-center justify-center animate-in fade-in duration-700 w-full px-4">
+      <div className="relative mb-8 flex justify-center items-center">
         {/* Progress Ring */}
-        <svg className="w-80 h-80 md:w-96 md:h-96 transform -rotate-90" viewBox="0 0 100 100">
+        <svg className="w-[70vw] h-[70vw] max-w-[20rem] max-h-[20rem] md:w-96 md:h-96 transform -rotate-90" viewBox="0 0 100 100">
           <circle
             cx="50"
             cy="50"
@@ -235,15 +235,15 @@ const Timer: React.FC<TimerProps> = ({ settings }) => {
                     value={editValues.h}
                     onChange={(e) => handleInputChange('h', e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="font-mono text-4xl md:text-6xl font-bold bg-transparent text-center outline-none w-16 md:w-24 border-b border-white/20 pb-2 placeholder-white/10"
+                    className="font-mono text-2xl sm:text-4xl md:text-6xl font-bold bg-transparent text-center outline-none w-10 sm:w-16 md:w-24 border-b border-white/20 pb-2 placeholder-white/10"
                     style={{ color: settings.textColor || settings.accentColor, caretColor: settings.accentColor }}
                     placeholder="00"
                     autoFocus
                   />
-                  <span className="text-[10px] md:text-xs text-gray-500 font-sans mt-2 tracking-widest">HR</span>
+                  <span className="text-[8px] md:text-xs text-gray-500 font-sans mt-2 tracking-widest">HR</span>
                </div>
                
-               <span className="text-4xl md:text-6xl font-bold pb-6 opacity-50" style={{ color: settings.textColor || settings.accentColor }}>:</span>
+               <span className="text-2xl sm:text-4xl md:text-6xl font-bold pb-6 opacity-50" style={{ color: settings.textColor || settings.accentColor }}>:</span>
 
                {/* Minutes */}
                <div className="flex flex-col items-center">
@@ -251,14 +251,14 @@ const Timer: React.FC<TimerProps> = ({ settings }) => {
                     value={editValues.m}
                     onChange={(e) => handleInputChange('m', e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="font-mono text-4xl md:text-6xl font-bold bg-transparent text-center outline-none w-16 md:w-24 border-b border-white/20 pb-2 placeholder-white/10"
+                    className="font-mono text-2xl sm:text-4xl md:text-6xl font-bold bg-transparent text-center outline-none w-10 sm:w-16 md:w-24 border-b border-white/20 pb-2 placeholder-white/10"
                     style={{ color: settings.textColor || settings.accentColor, caretColor: settings.accentColor }}
                     placeholder="00"
                   />
-                  <span className="text-[10px] md:text-xs text-gray-500 font-sans mt-2 tracking-widest">MIN</span>
+                  <span className="text-[8px] md:text-xs text-gray-500 font-sans mt-2 tracking-widest">MIN</span>
                </div>
 
-               <span className="text-4xl md:text-6xl font-bold pb-6 opacity-50" style={{ color: settings.textColor || settings.accentColor }}>:</span>
+               <span className="text-2xl sm:text-4xl md:text-6xl font-bold pb-6 opacity-50" style={{ color: settings.textColor || settings.accentColor }}>:</span>
 
                {/* Seconds */}
                <div className="flex flex-col items-center">
@@ -266,16 +266,16 @@ const Timer: React.FC<TimerProps> = ({ settings }) => {
                     value={editValues.s}
                     onChange={(e) => handleInputChange('s', e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="font-mono text-4xl md:text-6xl font-bold bg-transparent text-center outline-none w-16 md:w-24 border-b border-white/20 pb-2 placeholder-white/10"
+                    className="font-mono text-2xl sm:text-4xl md:text-6xl font-bold bg-transparent text-center outline-none w-10 sm:w-16 md:w-24 border-b border-white/20 pb-2 placeholder-white/10"
                     style={{ color: settings.textColor || settings.accentColor, caretColor: settings.accentColor }}
                     placeholder="00"
                   />
-                  <span className="text-[10px] md:text-xs text-gray-500 font-sans mt-2 tracking-widest">SEC</span>
+                  <span className="text-[8px] md:text-xs text-gray-500 font-sans mt-2 tracking-widest">SEC</span>
                </div>
              </div>
            ) : (
              <div 
-               className="font-mono text-6xl md:text-7xl font-bold tracking-tight select-none transition-opacity cursor-pointer hover:opacity-80"
+               className="font-mono text-[10vw] md:text-7xl font-bold tracking-tight select-none transition-opacity cursor-pointer hover:opacity-80"
                style={{ color: settings.textColor || settings.accentColor }}
                onClick={handleEditClick}
                title="Click to edit time"
@@ -283,37 +283,37 @@ const Timer: React.FC<TimerProps> = ({ settings }) => {
                {formatDuration(timerState.timeLeft)}
              </div>
            )}
-           <div className="text-gray-500 text-sm mt-6 font-sans tracking-wider uppercase h-6 text-center">
+           <div className="text-gray-500 text-xs md:text-sm mt-2 md:mt-6 font-sans tracking-wider uppercase h-6 text-center">
              {isEditing ? 'Set Timer' : (timerState.isRunning ? 'Focusing' : (timerState.timeLeft === 0 ? 'Done' : 'Ready'))}
            </div>
         </div>
       </div>
 
       {/* Controls */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4 md:gap-6">
         <IconButton onClick={() => adjustTime(-60)} disabled={isEditing}>
-          <Minus size={24} />
+          <Minus size={20} className="md:w-6 md:h-6" />
         </IconButton>
         
         <button
           onClick={toggleTimer}
-          className="w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100"
+          className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100"
           style={{ backgroundColor: settings.accentColor, color: '#000' }}
           disabled={isEditing}
         >
-          {timerState.isRunning ? <Pause size={32} fill="currentColor" /> : <Play size={32} fill="currentColor" className="ml-1" />}
+          {timerState.isRunning ? <Pause size={24} className="md:w-8 md:h-8" fill="currentColor" /> : <Play size={24} className="ml-1 md:w-8 md:h-8" fill="currentColor" />}
         </button>
         
         <IconButton onClick={resetTimer} disabled={isEditing}>
-          <RotateCcw size={24} />
+          <RotateCcw size={20} className="md:w-6 md:h-6" />
         </IconButton>
 
         <IconButton onClick={() => adjustTime(60)} disabled={isEditing}>
-          <Plus size={24} />
+          <Plus size={20} className="md:w-6 md:h-6" />
         </IconButton>
       </div>
       
-      <p className="mt-8 text-gray-600 text-xs font-sans opacity-60">
+      <p className="mt-8 text-gray-600 text-[10px] md:text-xs font-sans opacity-60 text-center px-4">
         {timerState.isRunning ? "Click time to edit (pauses timer)" : "Click time to edit, or use +/- to adjust."}
       </p>
     </div>

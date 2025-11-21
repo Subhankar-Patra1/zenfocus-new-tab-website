@@ -73,7 +73,7 @@ const App: React.FC = () => {
       />
 
       {/* Header / Controls */}
-      <header className="absolute top-0 left-0 right-0 p-6 flex justify-end z-40">
+      <header className="absolute top-0 left-0 right-0 p-4 md:p-6 flex justify-end z-40">
         <IconButton 
           onClick={() => setIsSettingsOpen(true)} 
           tooltip="Settings"
@@ -103,12 +103,12 @@ const App: React.FC = () => {
       </main>
 
       {/* Bottom Navigation */}
-      <footer className="absolute bottom-0 left-0 right-0 p-8 flex justify-center z-40">
+      <footer className="absolute bottom-0 left-0 right-0 p-4 md:p-8 flex justify-center z-40">
         <div className="bg-gray-900/50 backdrop-blur-md border border-white/5 rounded-full p-1 flex gap-1 shadow-xl">
           <button
             onClick={() => setMode('clock')}
             className={`
-              flex items-center gap-2 px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
+              flex items-center gap-2 px-4 md:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
               ${mode === 'clock' ? 'bg-white/10 text-white shadow-inner' : 'text-gray-500 hover:text-gray-300'}
             `}
           >
@@ -118,7 +118,7 @@ const App: React.FC = () => {
           <button
             onClick={() => setMode('timer')}
             className={`
-              flex items-center gap-2 px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
+              flex items-center gap-2 px-4 md:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
               ${mode === 'timer' ? 'bg-white/10 text-white shadow-inner' : 'text-gray-500 hover:text-gray-300'}
             `}
           >
