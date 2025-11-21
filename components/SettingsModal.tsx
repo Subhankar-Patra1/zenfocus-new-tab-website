@@ -190,6 +190,17 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, settings
         >
           Done
         </button>
+
+        <div className="mt-4 text-center">
+          <a 
+            href="/privacy.html" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+          >
+            Privacy Policy
+          </a>
+        </div>
       </div>
     </div>
   );
