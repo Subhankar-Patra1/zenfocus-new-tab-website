@@ -43,7 +43,7 @@ const GoogleAppsMenu: React.FC = () => {
       {isOpen && (
         <div 
           ref={menuRef}
-          className="absolute top-12 right-0 w-[320px] max-h-[460px] overflow-y-auto bg-[#202124] rounded-2xl shadow-2xl border border-gray-700/50 p-4 z-50 animate-in fade-in zoom-in-95 duration-200 custom-scrollbar"
+          className="absolute top-12 right-0 w-[320px] max-h-[460px] overflow-y-auto bg-[#202124]/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700/50 p-4 z-50 animate-in fade-in zoom-in-95 duration-200 custom-scrollbar"
           style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.4)' }}
         >
           <div className="grid grid-cols-3 gap-y-6 gap-x-2">
