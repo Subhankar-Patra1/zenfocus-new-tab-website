@@ -16,10 +16,10 @@ const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings }) => {
     <div className="fixed bottom-6 left-6 z-50 flex items-center">
       {/* Toggle Button */}
       <div 
-        className="flex items-center gap-3 px-4 py-3 bg-[#202124]/80 backdrop-blur-xl border border-white/10 rounded-full cursor-pointer hover:bg-white/10 transition-all duration-300 z-20 shadow-lg"
+        className="flex items-center gap-2 px-4 md:px-6 py-2 bg-[#202124]/80 backdrop-blur-xl border border-white/10 rounded-full cursor-pointer hover:bg-white/10 transition-all duration-300 z-20 shadow-lg"
         onClick={toggleMenu}
       >
-        <div className="w-6 h-6">
+        <div className="w-[18px] h-[18px]">
           <svg height="100%" viewBox="0 0 280 280" width="100%" xmlns="http://www.w3.org/2000/svg">
             <path 
               id="aiIcon" 
