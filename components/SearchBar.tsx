@@ -1,14 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X } from 'lucide-react';
 
-declare var chrome: any;
+interface SearchBarProps {
+  onFocusChange?: (isFocused: boolean) => void;
+}
 
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC<SearchBarProps> = ({ onFocusChange }) => {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (onFocusChange) {
+      onFocusChange(isFocused);
+    }
+  }, [isFocused, onFocusChange]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

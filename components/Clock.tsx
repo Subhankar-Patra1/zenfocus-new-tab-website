@@ -5,9 +5,10 @@ import SearchBar from './SearchBar';
 
 interface ClockProps {
   settings: AppSettings;
+  onSearchFocusChange?: (isFocused: boolean) => void;
 }
 
-const Clock: React.FC<ClockProps> = ({ settings }) => {
+const Clock: React.FC<ClockProps> = ({ settings, onSearchFocusChange }) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const Clock: React.FC<ClockProps> = ({ settings }) => {
       style={{ color: settings.textColor || settings.accentColor }}
     >
       <div className="absolute top-[10%] md:top-[15%] z-50 w-full flex justify-center px-4">
-        <SearchBar />
+        <SearchBar onFocusChange={onSearchFocusChange} />
       </div>
 
       <div className="flex items-baseline font-mono leading-none select-none mt-12 md:mt-0">

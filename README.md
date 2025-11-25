@@ -1,21 +1,24 @@
 # ZenFocus 🌿
 
-**ZenFocus** is a beautifully minimalist New Tab extension designed to help you stay focused and calm. It replaces your cluttered browser start page with a clean, aesthetic interface featuring a clock, a focus timer, and a distraction-free search bar.
+**ZenFocus** is a beautifully minimalist New Tab extension designed to help you stay focused and calm. It replaces your cluttered browser start page with a clean, aesthetic interface featuring a clock, a focus timer, quick access to AI tools, and a distraction-free search bar.
 
 ![ZenFocus Preview](https://drive.google.com/uc?export=view&id=1M97wo3h2pnovN933JUv6zKS6y6sjtvAi)
 
 ## ✨ Features
 
-*   **Minimalist Design**: A clutter-free interface that promotes clarity and peace of mind.
+*   **Minimalist Design**: A clutter-free interface that promotes clarity and peace of mind with ambient background effects.
 *   **Dual Modes**:
     *   **Clock Mode**: Large, elegant time display with date.
     *   **Timer Mode**: A focus timer (Pomodoro style) with a visual progress ring and pleasant completion chimes.
+*   **AI Tools Hub**: Quick access to popular AI assistants like ChatGPT, Gemini, Copilot, Claude, DeepSeek, Perplexity, Grok, Meta AI, and Qwen.
+    *   *Toggleable*: Can be enabled/disabled in settings.
+    *   *Scrollable*: Horizontal scrolling for easy access to all tools.
+*   **Google Apps Menu**: Quick access to your favorite Google services.
 *   **Smart Search**: A centered search bar with Google suggestions that stays out of your way until you need it.
 *   **Deep Customization**:
-    *   **Theme Presets**: Choose from curated themes like *Zen Dark*, *Midnight*, *Forest*, *Sunset*, *Ocean*, and *Cyber*.
-    *   **Custom Color Picker**: Fully customize background, text, and accent colors with real-time preview.
-    *   **Gradient Support**: Beautiful gradient text options for a modern look.
-*   **Preferences**: Toggle between 12h/24h formats and enable/disable sound effects.
+    *   **Theme Presets**: Choose from curated color presets.
+    *   **Custom Colors**: Fully customize background, text, and accent colors.
+    *   **Preferences**: Toggle between 12h/24h formats, enable/disable sound effects, and toggle features like the AI Tools menu.
 
 ## 🚀 Getting Started
 
@@ -28,8 +31,8 @@
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/zenfocus-new-tab.git
-    cd zenfocus-new-tab
+    git clone https://github.com/Subhankar-Patra1/zenfocus-new-tab-website.git
+    cd zenfocus-new-tab-website
     ```
 
 2.  **Install dependencies**
@@ -71,19 +74,23 @@ To use ZenFocus as your actual browser New Tab page:
 ## 🎨 Customization Guide
 
 Click the **Settings (Gear)** icon in the top right corner to access the customization menu.
-*   **Presets**: Click any preset card to instantly apply a theme.
-*   **Custom**: Click the multi-colored circle button to open the advanced color picker. You can set specific hex codes for background, text, and accents.
+*   **Time Format**: Switch between 12-hour and 24-hour clocks.
+*   **Sound**: Enable or disable timer sounds.
+*   **Features**: Toggle the visibility of the Google Apps Menu and AI Tools Menu.
+*   **Colors**: Select from presets or use the palette icon to choose custom colors for the background, text, and accents.
 
 ## 📂 Project Structure
 
 ```text
-zenfocus-new-tab/
-├── components/          # React components (Clock, Timer, Settings, etc.)
+zenfocus-new-tab-website/
+├── api/                 # Backend API functions (e.g., search suggestions)
+├── components/          # React components (Clock, Timer, Settings, AiToolsMenu, etc.)
 ├── fonts/               # Local font files
 ├── utils/               # Helper functions (time formatting, etc.)
 ├── App.tsx              # Main application component
 ├── build-extension.js   # Script to package the extension
 ├── constants.ts         # App constants and theme presets
+├── index.css            # Global styles and Tailwind directives
 ├── manifest.json        # Chrome Extension manifest configuration
 ├── tailwind.config.js   # Tailwind CSS configuration
 ├── types.ts             # TypeScript interfaces and types

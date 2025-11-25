@@ -16,6 +16,7 @@ const App: React.FC = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [settings, setSettings] = useState<AppSettings>(DEFAULT_SETTINGS);
   const [loaded, setLoaded] = useState(false);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   // Load settings from storage (Chrome Sync or LocalStorage)
   useEffect(() => {
@@ -93,7 +94,7 @@ const App: React.FC = () => {
             mode === 'clock' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
         >
-          <Clock settings={settings} />
+          <Clock settings={settings} onSearchFocusChange={setIsSearchFocused} />
         </div>
 
         <div 
@@ -131,7 +132,7 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {settings.showAiTools && <AiToolsMenu settings={settings} />}
+      {settings.showAiTools && <AiToolsMenu settings={settings} isBlurred={isSearchFocused} />}
 
       {/* Modals */}
       <SettingsModal 

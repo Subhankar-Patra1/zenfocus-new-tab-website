@@ -3,9 +3,10 @@ import { AppSettings } from '../types';
 
 interface AiToolsMenuProps {
   settings: AppSettings;
+  isBlurred?: boolean;
 }
 
-const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings }) => {
+const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings, isBlurred = false }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -13,7 +14,11 @@ const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings }) => {
   };
 
   return (
-    <div className="fixed bottom-8 left-6 z-50 flex items-center max-w-[calc(100vw-3rem)]">
+    <div 
+      className={`fixed bottom-8 left-6 z-50 flex items-center max-w-[calc(100vw-3rem)] transition-all duration-500 ${
+        isBlurred ? 'blur-md opacity-50 pointer-events-none' : ''
+      }`}
+    >
       {/* Toggle Button */}
       <div 
         className="flex-shrink-0 flex items-center gap-2 px-4 md:px-6 py-3 bg-[#202124]/80 backdrop-blur-xl border border-white/10 rounded-full cursor-pointer hover:bg-white/10 transition-all duration-300 z-20 shadow-lg"
