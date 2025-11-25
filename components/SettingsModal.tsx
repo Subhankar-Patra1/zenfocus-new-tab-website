@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppSettings, ColorOption } from '../types';
 import { COLOR_OPTIONS, DEFAULT_SETTINGS } from '../constants';
-import { X, Check, Volume2, VolumeX, Palette, ChevronRight, Grid } from 'lucide-react';
+import { X, Check, Volume2, VolumeX, Palette, ChevronRight, Grid, Bot } from 'lucide-react';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -27,7 +27,22 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, settings
 
   return (
     <div className="absolute inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-all duration-300">
-      <div className="bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-2xl shadow-2xl w-full max-w-sm mx-4 transform transition-all max-h-[90vh] overflow-y-auto">
+      <style>{`
+        .settings-scrollbar::-webkit-scrollbar {
+          width: 5px;
+        }
+        .settings-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .settings-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+        }
+        .settings-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.2);
+        }
+      `}</style>
+      <div className="bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-2xl shadow-2xl w-full max-w-sm mx-4 transform transition-all max-h-[90vh] overflow-y-auto settings-scrollbar">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-sans font-semibold text-white">
             {showCustomPicker ? 'Custom Theme' : 'Customize'}
@@ -168,6 +183,23 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, settings
                   <div className={`w-8 h-4 rounded-full relative transition-colors ${settings.showGoogleApps ? 'bg-emerald-500/20' : 'bg-gray-600/20'}`}>
                     <div className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 ${
                       settings.showGoogleApps ? 'bg-emerald-500 left-5' : 'bg-gray-500 left-1'
+                    }`} />
+                  </div>
+                </button>
+                
+                <div className="h-px bg-gray-700/50 mx-4 my-1" />
+
+                <button
+                  onClick={() => onUpdateSettings({ ...settings, showAiTools: !settings.showAiTools })}
+                  className="w-full flex items-center justify-between px-4 py-2 rounded-md hover:bg-gray-700 transition-all group"
+                >
+                  <div className="flex items-center gap-3 text-sm font-medium text-gray-200">
+                    <Bot size={18} className={settings.showAiTools ? 'text-white' : 'text-gray-500'} />
+                    <span>AI Tools Menu</span>
+                  </div>
+                  <div className={`w-8 h-4 rounded-full relative transition-colors ${settings.showAiTools ? 'bg-emerald-500/20' : 'bg-gray-600/20'}`}>
+                    <div className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 ${
+                      settings.showAiTools ? 'bg-emerald-500 left-5' : 'bg-gray-500 left-1'
                     }`} />
                   </div>
                 </button>

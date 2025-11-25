@@ -13,10 +13,10 @@ const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings }) => {
   };
 
   return (
-    <div className="fixed bottom-8 left-6 z-50 flex items-center">
+    <div className="fixed bottom-8 left-6 z-50 flex items-center max-w-[calc(100vw-3rem)]">
       {/* Toggle Button */}
       <div 
-        className="flex items-center gap-2 px-4 md:px-6 py-3 bg-[#202124]/80 backdrop-blur-xl border border-white/10 rounded-full cursor-pointer hover:bg-white/10 transition-all duration-300 z-20 shadow-lg"
+        className="flex-shrink-0 flex items-center gap-2 px-4 md:px-6 py-3 bg-[#202124]/80 backdrop-blur-xl border border-white/10 rounded-full cursor-pointer hover:bg-white/10 transition-all duration-300 z-20 shadow-lg"
         onClick={toggleMenu}
       >
         <div className="w-[18px] h-[18px]">
@@ -33,10 +33,10 @@ const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings }) => {
 
       {/* Tools List */}
       <div 
-        className={`flex items-center gap-3 ml-4 transition-all duration-500 ease-out origin-left ${
+        className={`flex flex-nowrap items-center gap-3 pl-4 transition-all duration-500 ease-out origin-left overflow-x-auto no-scrollbar min-w-0 ${
           isOpen 
-            ? 'opacity-100 translate-x-0 pointer-events-auto' 
-            : 'opacity-0 -translate-x-10 pointer-events-none absolute left-0'
+            ? 'opacity-100 translate-x-0 pointer-events-auto max-w-full pr-4' 
+            : 'opacity-0 -translate-x-10 pointer-events-none absolute left-0 w-0'
         }`}
       >
         <ToolLink href="https://chatgpt.com/" label="ChatGPT" accentColor={settings.accentColor}>
@@ -102,13 +102,6 @@ const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings }) => {
                 <path style={{ fill: settings.accentColor }} transform="scale(0.72) translate(5, 5)" d="M12.604 1.34c.393.69.784 1.382 1.174 2.075a.18.18 0 00.157.091h5.552c.174 0 .322.11.446.327l1.454 2.57c.19.337.24.478.024.837-.26.43-.513.864-.76 1.3l-.367.658c-.106.196-.223.28-.04.512l2.652 4.637c.172.301.111.494-.043.77-.437.785-.882 1.564-1.335 2.34-.159.272-.352.375-.68.37-.777-.016-1.552-.01-2.327.016a.099.099 0 00-.081.05 575.097 575.097 0 01-2.705 4.74c-.169.293-.38.363-.725.364-.997.003-2.002.004-3.017.002a.537.537 0 01-.465-.271l-1.335-2.323a.09.09 0 00-.083-.049H4.982c-.285.03-.553-.001-.805-.092l-1.603-2.77a.543.543 0 01-.002-.54l1.207-2.12a.198.198 0 000-.197 550.951 550.951 0 01-1.875-3.272l-.79-1.395c-.16-.31-.173-.496.095-.965.465-.813.927-1.625 1.387-2.436.132-.234.304-.334.584-.335a338.3 338.3 0 012.589-.001.124.124 0 00.107-.063l2.806-4.895a.488.488 0 01.422-.246c.524-.001 1.053 0 1.583-.006L11.704 1c.341-.003.724.032.9.34zm-3.432.403a.06.06 0 00-.052.03L6.254 6.788a.157.157 0 01-.135.078H3.253c-.056 0-.07.025-.041.074l5.81 10.156c.025.042.013.062-.034.063l-2.795.015a.218.218 0 00-.2.116l-1.32 2.31c-.044.078-.021.118.068.118l5.716.008c.046 0 .08.02.104.061l1.403 2.454c.046.081.092.082.139 0l5.006-8.76.783-1.382a.055.055 0 01.096 0l1.424 2.53a.122.122 0 00.107.062l2.763-.02a.04.04 0 00.035-.02.041.041 0 000-.04l-2.9-5.086a.108.108 0 010-.113l.293-.507 1.12-1.977c.024-.041.012-.062-.035-.062H9.2c-.059 0-.073-.026-.043-.077l1.434-2.505a.107.107 0 000-.114L9.225 1.774a.06.06 0 00-.053-.031zm6.29 8.02c.046 0 .058.02.034.06l-.832 1.465-2.613 4.585a.056.056 0 01-.05.029.058.058 0 01-.05-.029L8.498 9.841c-.02-.034-.01-.052.028-.054l.216-.012 6.722-.012z"></path>
             </svg>
         </ToolLink>
-
-        <ToolLink href="https://firefly.adobe.com/" label="Adobe Firefly" accentColor={settings.accentColor}>
-            <svg height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <rect className="fill-white/10" width="100%" height="100%" rx="50%"></rect>
-                <path style={{ fill: settings.accentColor }} transform="scale(0.55) translate(10, 10)" d="m21.512 6.098-1.849-.417a.741.741 0 0 0-.68.18l-1.39 1.285c-.548.507-1.424.008-1.26-.72l.417-1.85a.735.735 0 0 0-.18-.679l-1.285-1.391c-.507-.548 0-1.416.729-1.252l1.849.417c.237.058.499-.008.68-.18l1.39-1.284c.548-.508 1.424-.009 1.26.72l-.417 1.849c-.057.245.008.5.18.68l1.285 1.39c.507.548 0 1.416-.729 1.252zM5.76 23.738c0 .18-.081.262-.262.262h-3.74c-.146 0-.204-.106-.204-.262V4.402c0-.172.058-.237.23-.237H13.77c.205 0 .254.057.287.253l.335 3.265c.033.18-.057.262-.253.262H5.76v4.599h7.553c.172 0 .254.057.254.237v3.306c0 .18-.09.237-.237.237H5.76ZM16.635 9.207c0-.172.082-.254.254-.254h3.723c.197 0 .254.05.254.246v14.516c0 .197-.057.278-.278.278h-3.65c-.204 0-.303-.09-.303-.286z"></path>
-            </svg>
-        </ToolLink>
       </div>
     </div>
   );
@@ -117,7 +110,7 @@ const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings }) => {
 const ToolLink: React.FC<{ href: string; label: string; children: React.ReactNode; accentColor: string }> = ({ href, label, children, accentColor }) => (
   <a 
     href={href} 
-    className="flex items-center gap-2 px-4 md:px-6 py-3 bg-[#202124]/80 backdrop-blur-xl border border-white/10 rounded-full hover:bg-white/10 transition-all duration-300 group"
+    className="flex-shrink-0 flex items-center gap-2 px-4 md:px-6 py-3 bg-[#202124]/80 backdrop-blur-xl border border-white/10 rounded-full hover:bg-white/10 transition-all duration-300 group"
   >
     <div className="w-[18px] h-[18px] flex-shrink-0">
       {children}

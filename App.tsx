@@ -131,7 +131,7 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      <AiToolsMenu settings={settings} />
+      {settings.showAiTools && <AiToolsMenu settings={settings} />}
 
       {/* Modals */}
       <SettingsModal 
