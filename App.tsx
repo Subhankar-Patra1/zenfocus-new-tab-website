@@ -74,7 +74,7 @@ const App: React.FC = () => {
       />
 
       {/* Header / Controls */}
-      <header className="absolute top-0 left-0 right-0 p-4 md:p-6 flex justify-end items-center gap-2 z-40">
+      <header className="absolute top-0 left-0 right-0 p-4 md:p-6 flex justify-end items-center gap-2 z-[60]">
         {settings.showGoogleApps && <GoogleAppsMenu />}
         <IconButton 
           onClick={() => setIsSettingsOpen(true)} 
