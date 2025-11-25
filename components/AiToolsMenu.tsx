@@ -28,7 +28,7 @@ const AiToolsMenu: React.FC<AiToolsMenuProps> = ({ settings }) => {
             />
           </svg>
         </div>
-        <div className="text-sm font-medium text-gray-200">AI Tools</div>
+        <div className="text-sm font-medium text-gray-200 whitespace-nowrap">AI Tools</div>
       </div>
 
       {/* Tools List */}
