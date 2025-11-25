@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppSettings, ColorOption } from '../types';
 import { COLOR_OPTIONS, DEFAULT_SETTINGS } from '../constants';
-import { X, Check, Volume2, VolumeX, Palette, ChevronRight } from 'lucide-react';
+import { X, Check, Volume2, VolumeX, Palette, ChevronRight, Grid } from 'lucide-react';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -145,6 +145,29 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, settings
                   <div className={`w-8 h-4 rounded-full relative transition-colors ${settings.soundEnabled ? 'bg-emerald-500/20' : 'bg-gray-600/20'}`}>
                     <div className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 ${
                       settings.soundEnabled ? 'bg-emerald-500 left-5' : 'bg-gray-500 left-1'
+                    }`} />
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* Google Apps Toggle */}
+            <div className="mb-8">
+              <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
+                Features
+              </label>
+              <div className="bg-gray-800 p-1 rounded-lg">
+                 <button
+                  onClick={() => onUpdateSettings({ ...settings, showGoogleApps: !settings.showGoogleApps })}
+                  className="w-full flex items-center justify-between px-4 py-2 rounded-md hover:bg-gray-700 transition-all group"
+                >
+                  <div className="flex items-center gap-3 text-sm font-medium text-gray-200">
+                    <Grid size={18} className={settings.showGoogleApps ? 'text-white' : 'text-gray-500'} />
+                    <span>Google Apps Menu</span>
+                  </div>
+                  <div className={`w-8 h-4 rounded-full relative transition-colors ${settings.showGoogleApps ? 'bg-emerald-500/20' : 'bg-gray-600/20'}`}>
+                    <div className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 ${
+                      settings.showGoogleApps ? 'bg-emerald-500 left-5' : 'bg-gray-500 left-1'
                     }`} />
                   </div>
                 </button>

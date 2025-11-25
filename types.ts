@@ -6,6 +6,7 @@ export interface AppSettings {
   textColor: string;
   backgroundColor: string;
   soundEnabled: boolean;
+  showGoogleApps: boolean;
 }
 
 export interface TimerState {

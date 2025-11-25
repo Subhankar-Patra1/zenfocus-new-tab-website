@@ -15,6 +15,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   textColor: '#ffffff',
   backgroundColor: '#030712', // gray-950
   soundEnabled: true,
+  showGoogleApps: false,
 };
 
 export const DEFAULT_TIMER_DURATION = 25 * 60; // 25 minutes

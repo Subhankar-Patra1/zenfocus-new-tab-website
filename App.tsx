@@ -6,6 +6,7 @@ import Clock from './components/Clock';
 import Timer from './components/Timer';
 import SettingsModal from './components/SettingsModal';
 import IconButton from './components/IconButton';
+import GoogleAppsMenu from './components/GoogleAppsMenu';
 
 declare var chrome: any;
 
@@ -73,7 +74,8 @@ const App: React.FC = () => {
       />
 
       {/* Header / Controls */}
-      <header className="absolute top-0 left-0 right-0 p-4 md:p-6 flex justify-end z-40">
+      <header className="absolute top-0 left-0 right-0 p-4 md:p-6 flex justify-end items-center gap-2 z-40">
+        {settings.showGoogleApps && <GoogleAppsMenu />}
         <IconButton 
           onClick={() => setIsSettingsOpen(true)} 
           tooltip="Settings"
