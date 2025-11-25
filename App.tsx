@@ -7,6 +7,7 @@ import Timer from './components/Timer';
 import SettingsModal from './components/SettingsModal';
 import IconButton from './components/IconButton';
 import GoogleAppsMenu from './components/GoogleAppsMenu';
+import AiToolsMenu from './components/AiToolsMenu';
 
 declare var chrome: any;
 
@@ -129,6 +130,8 @@ const App: React.FC = () => {
           </button>
         </div>
       </footer>
+
+      <AiToolsMenu settings={settings} />
 
       {/* Modals */}
       <SettingsModal 
